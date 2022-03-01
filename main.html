@@ -23,7 +23,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-------------------------------------------->
@@ -39,21 +39,41 @@
 
     <div class="container-fluid  text-dark p-5">
         <div class="container  p-5">
-            <h1 class="display-4">You are logged in!</h1>
+            <h1 class="display-4">Welcome, <span id="name-goes-here">...</span></h1>
             <hr>
-            <p>I like big hikes I a cannot lie</p>
+            <p>Quote of the day: <span id="quote-goes-here">...</span></p>
+            <!-- <p>I like big hikes and I cannot lie</p>
             <p>You other hikers can't deny</p>
             <p>That when the sun comes up on a pretty mountaintop</p>
             <p>And the fresh air in my lungs</p>
-            <p>You get sprung...</p>
+            <p>You get sprung...</p> -->
         </div>
-</div>
+    </div>
+    <div class="container">
+        <h1>Some popular hikes</h1>
+        <div id="container">
+            <div id="hikes-go-here" class="row row-cols-auto">
+                <template id="hikeCardTemplate">
+                    <div class="card py-2 mx-2" style="width: 18rem;">
+                        <img class="card-image card-img-top" src=" ..." alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                            <a class="btn btn-primary card-href">Get Details</a>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
 
     <nav id="footerPlaceholder"></nav>
 
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/main.js"></script>
 
 </body>
 
