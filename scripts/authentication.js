@@ -7,25 +7,22 @@ var uiConfig = {
             // User successfully signed in.
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
-           var user = authResult.user; // get user object info
-           if (authResult,additionalUserInfo.isNewUser) {
-               // create collection with name "users"
-               db.collection("users")
-               //define a doc for user with UID as doc ID
-               .doc(user.uid).set({
-                   name: user.displayName,
-                   email: user.email
-               }).then(function(){
-                   console.log("New user added to firestore");
-                   window.location.assign("main.html")
-               })
-               .catch(function(error){
-                   console.log(error);
-               })
-           }else{
-               return True
-           }
-
+            var user = authResult.user;                            // get the user object from the Firebase authentication database
+            if (authResult.additionalUserInfo.isNewUser) {         //if new user
+                db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
+                        name: user.displayName,                    //"users" collection
+                        email: user.email                          //with authenticated user's ID (user.uid)
+                    }).then(function () {
+                        console.log("New user added to firestore");
+                        window.location.assign("main.html");       //re-direct to main.html after signup
+                    })
+                    .catch(function (error) {
+                        console.log("Error adding new user: " + error);
+                    });
+            } else {
+                return true;
+            }
+            return false;
         },
         uiShown: function () {
             // The widget is rendered.
